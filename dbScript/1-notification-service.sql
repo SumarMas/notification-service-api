@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS notifications (
     title VARCHAR(255) NOT NULL,
     message TEXT NOT NULL,
     type VARCHAR(50) NOT NULL, -- ej: ORGANIZATION_VERIFIED, DONATION_SUCCESS, etc.
-    `read` BOOLEAN DEFAULT FALSE,
+    is_read BOOLEAN DEFAULT FALSE,
 
     enabled BOOLEAN DEFAULT TRUE,
     created_datetime DATETIME DEFAULT NOW(),
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS notifications (
 
     PRIMARY KEY (notification_id),
     KEY idx_notifications_user (user_id),
-    KEY idx_notifications_read (`read`),
+    KEY idx_notifications_read (is_read),
     KEY idx_notifications_type (type)
     );
 
