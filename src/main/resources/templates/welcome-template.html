@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Sumar+</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        /* Reset para email */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            width: 100% !important;
+            min-width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Contenedor principal */
+        .email-container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgb(202, 138, 227) 0%, rgb(168, 85, 247) 100%);
+            padding: 40px 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .header .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        /* Contenido principal */
+        .content {
+            padding: 40px 25px;
+        }
+
+        /* Logo section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgb(202, 138, 227), rgb(168, 85, 247));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        /* Mensaje de bienvenida */
+        .welcome-message {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .welcome-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .user-name {
+            color: rgb(168, 85, 247);
+            font-weight: 700;
+        }
+
+        .welcome-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        /* Detalles del usuario */
+        .user-details {
+            background-color: rgba(168, 85, 247, 0.02);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid rgba(168, 85, 247, 0.12);
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .detail-row td {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.08);
+            vertical-align: top;
+        }
+
+        .detail-row:last-child td {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #666;
+            font-size: 14px;
+            width: 40%;
+        }
+
+        .detail-value {
+            font-weight: 500;
+            color: #333333;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        /* Sección de próximos pasos */
+        .next-steps {
+            margin: 30px 0;
+        }
+
+        .next-steps-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .step-item {
+            display: block;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            background-color: rgba(168, 85, 247, 0.02);
+            border-radius: 10px;
+            border-left: 3px solid rgb(168, 85, 247);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, rgb(202, 138, 227), rgb(168, 85, 247));
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+
+        .step-text {
+            font-size: 14px;
+            color: #333;
+            display: inline;
+            vertical-align: middle;
+        }
+
+        /* Botón de acción */
+        .cta-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, rgb(202, 138, 227), rgb(168, 85, 247));
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Mensaje final */
+        .footer-message {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .highlight {
+            color: rgb(168, 85, 247);
+            font-weight: 600;
+        }
+
+        /* Responsivo para móviles */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .email-container {
+                border-radius: 12px;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 35px 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .content {
+                padding: 35px 20px;
+            }
+            
+            .welcome-title {
+                font-size: 20px;
+            }
+            
+            .user-details {
+                padding: 20px;
+            }
+            
+            .detail-label,
+            .detail-value {
+                font-size: 13px;
+            }
+
+            .detail-label {
+                width: 45%;
+            }
+
+            .step-item {
+                padding: 12px 15px;
+            }
+
+            .cta-button {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+        }
+
+        /* Compatibilidad con Outlook */
+        <!--[if mso]>
+        .header {
+            background: #a855f7 !important;
+        }
+        .user-details {
+            background-color: #fafafa !important;
+        }
+        .brand-name {
+            color: #a855f7 !important;
+        }
+        .cta-button {
+            background: #a855f7 !important;
+        }
+        .step-item {
+            background-color: #fafafa !important;
+        }
+        .step-number {
+            background: #a855f7 !important;
+        }
+        <![endif]-->
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal compatible con todos los clientes de email -->
+    <div class="email-container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>¡Bienvenido a Sumar+!</h1>
+            <p class="subtitle">Estamos felices de tenerte con nosotros</p>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="content">
+            
+            <!-- Logo -->
+            <div class="logo-section">
+                <h2 class="brand-name">Sumar+</h2>
+            </div>
+
+            <!-- Mensaje de bienvenida -->
+            <div class="welcome-message">
+                <div class="welcome-title">
+                    ¡Hola, <span class="user-name">${firstName}</span>!
+                </div>
+                <p class="welcome-text">
+                    Tu cuenta ha sido creada exitosamente. Ahora eres parte de una comunidad 
+                    comprometida con hacer la diferencia.
+                </p>
+            </div>
+
+
+
+            <!-- Próximos pasos -->
+            <div class="next-steps">
+                <div class="next-steps-title">Próximos pasos</div>
+                
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Explora las campañas activas</span>
+                </div>
+                
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Encuentra una causa que quieras apoyar</span>
+                </div>
+                
+                <div class="step-item">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Comienza a hacer la diferencia</span>
+                </div>
+            </div>
+
+            <!-- Mensaje final -->
+            <div class="footer-message">
+                Si tienes alguna pregunta, no dudes en contactarnos. 
+                Estamos aquí para ayudarte en cada paso del camino.
+                <br><br>
+                <span class="highlight">¡Juntos construimos un futuro mejor!</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
