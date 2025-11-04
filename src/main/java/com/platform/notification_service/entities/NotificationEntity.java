@@ -26,6 +26,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class NotificationEntity extends AuditEntity {
+    /** Maximum length for the notification type string representation. */
+    private static final int NOTIFICATION_TYPE_LENGTH = 50;
     /** Unique identifier for the notification. */
     @Id
     @Column(name = "notification_id", columnDefinition = "BINARY(16)")
@@ -39,11 +41,11 @@ public class NotificationEntity extends AuditEntity {
     /** Message content of the notification. */
     @Column(nullable = false, columnDefinition = "TEXT")
     private String message;
-    /** Type of the notification */
+    /** Type of the notification. */
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = NOTIFICATION_TYPE_LENGTH)
     private NotificationType type;
     /** Flag indicating whether the notification has been read. */
     @Column(name = "is_read", nullable = false)
-    private boolean read = false;
+    private boolean read;
 }

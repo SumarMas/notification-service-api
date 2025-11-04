@@ -12,6 +12,10 @@ import java.util.UUID;
  */
 @Repository
 public interface NotificationRepository extends JpaRepository<NotificationEntity, UUID> {
-    /** Find top 10 notifications by user ID, ordered by read status and creation date. */
+    /**
+     * Find top 10 notifications by user ID, ordered by read status and creation date.
+     * @param userId the UUID of the user
+     * @return list of NotificationEntity
+     * */
     List<NotificationEntity> findTop10ByUserIdOrderByReadAscCreatedDatetimeDesc(UUID userId);
 }

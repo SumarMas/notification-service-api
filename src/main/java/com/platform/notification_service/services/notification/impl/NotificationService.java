@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+/**
+ * Service implementation for managing notifications.
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -40,7 +44,8 @@ public class NotificationService implements INotificationService {
      * Retrieves notifications for a specific user.
      *
      * @param userId The UUID of the user whose notifications are to be retrieved.
-     * @return A list of NotificationDto objects representing the user's notifications.
+     * @return A list of NotificationDto objects
+     * representing the user's notifications.
      */
     @Override
     public List<NotificationDto> getNotificationsForUser(UUID userId) {

@@ -8,7 +8,9 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+/**
+ * Abstract configuration class for RabbitMQ queues.
+ */
 @Configuration
 @Getter
 public abstract class QueueAbstractConfig {

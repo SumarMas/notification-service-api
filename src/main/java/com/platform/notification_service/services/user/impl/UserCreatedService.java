@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,11 +23,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @RequiredArgsConstructor
 @Slf4j
 public class UserCreatedService implements IUserCreatedService {
-    /** Email service for sending notifications */
+    /** Email service for sending notifications. */
     private final IEmailService emailService;
-    /** Template service for rendering email templates */
+    /** Template service for rendering email templates. */
     private final ITemplateService templateService;
-    /** Notification service for sending notifications */
+    /** Notification service for sending notifications. */
     private final INotificationService notificationService;
 
     /**

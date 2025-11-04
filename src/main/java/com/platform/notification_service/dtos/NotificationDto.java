@@ -8,7 +8,9 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
+/**
+ * Data Transfer Object (DTO) representing an in-app notification.
+ */
 @Data
 @Builder
 public class NotificationDto {
@@ -24,12 +26,12 @@ public class NotificationDto {
     /** Message content of the notification. */
     @JsonProperty("message")
     private String message;
-    /** Type of the notification */
+    /** Type of the notification. */
     @JsonProperty("type")
     private NotificationType type;
     /** Flag indicating whether the notification has been read. */
     @JsonProperty("read")
-    private boolean read = false;
+    private boolean read;
     /** LocalDateTime when the notification was created. */
     @JsonFormat(shape =  JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;

@@ -1,5 +1,6 @@
 package com.platform.notification_service.services.template.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -9,10 +10,15 @@ import org.jsoup.select.Elements;
  * Utility class to apply inline CSS to email HTML templates.
  * Works with Gmail, Outlook, and most clients.
  */
+@Slf4j
+@SuppressWarnings("PMD.LooseCoupling")
 public class CssInlinerUtil {
+    /** Constant for the number two. */
+    private static final int TWO = 2;
 
     /**
-     * Converts <style> rules in the HTML into inline CSS for better email compatibility.
+     * Converts <style> rules in the HTML into inline CSS
+     * for better email compatibility.
      *
      * @param html original HTML template
      * @return HTML string with inline CSS
@@ -46,12 +52,15 @@ public class CssInlinerUtil {
         String[] rules = css.split("}");
         for (String rule : rules) {
             String[] parts = rule.split("\\{");
-            if (parts.length != 2) continue;
-
+            if (parts.length != TWO) {
+                continue;
+            }
             String selector = parts[0].trim();
             String styles = parts[1].trim();
 
-            if (selector.isEmpty() || styles.isEmpty()) continue;
+            if (selector.isEmpty() || styles.isEmpty()) {
+                continue;
+            }
 
             try {
                 Elements elements = doc.select(selector);
@@ -61,6 +70,7 @@ public class CssInlinerUtil {
                 }
             } catch (Exception e) {
                 // Ignorar selectores no válidos (ej. @media, keyframes, etc.)
+                log.debug(e.getMessage());
             }
         }
     }

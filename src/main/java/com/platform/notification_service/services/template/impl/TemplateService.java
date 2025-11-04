@@ -1,11 +1,13 @@
 package com.platform.notification_service.services.template.impl;
 
+import com.platform.notification_service.controllers.manageExceptions.CustomException;
 import com.platform.notification_service.services.template.ITemplateService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringSubstitutor;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 
@@ -20,7 +22,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Slf4j
 public class TemplateService implements ITemplateService {
-    /** Resource loader for loading template files */
+    /** Resource loader for loading template files.*/
     private final ResourceLoader resourceLoader;
     /**
      * Renders the HTML template replacing placeholders with provided values.
@@ -39,7 +41,7 @@ public class TemplateService implements ITemplateService {
             return styleInLine;
         } catch (IOException ex) {
             log.error("Error loading template: {}", templateName, ex);
-            throw new RuntimeException("Failed to load template: " + templateName, ex);
+            throw new CustomException("Failed to load template: " + templateName, HttpStatus.INTERNAL_SERVER_ERROR, ex);
         }
     }
 }

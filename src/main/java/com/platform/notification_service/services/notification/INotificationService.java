@@ -17,7 +17,8 @@ public interface INotificationService {
     /** Retrieves notifications for a specific user.
      *
      * @param userId The UUID of the user whose notifications are to be retrieved.
-     * @return A list of NotificationDto objects representing the user's notifications.
+     * @return A list of NotificationDto objects
+     * representing the user's notifications.
      */
     List<NotificationDto> getNotificationsForUser(UUID userId);
     /** Marks a notification as read.

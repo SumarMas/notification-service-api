@@ -4,7 +4,9 @@ import lombok.Getter;
 import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+/**
+ * Abstract configuration class for RabbitMQ exchanges.
+ */
 @Configuration
 public abstract class ExchangeAbstractConfig {
     /** Name of the exchange. */

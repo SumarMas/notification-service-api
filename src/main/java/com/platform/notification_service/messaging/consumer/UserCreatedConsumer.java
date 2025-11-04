@@ -12,7 +12,9 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-
+/**
+ * Consumer class for handling user created events from RabbitMQ.
+ */
 @Component
 @RequiredArgsConstructor
 @Slf4j

@@ -1,10 +1,12 @@
 package com.platform.notification_service.services.email.impl;
 
+import com.platform.notification_service.controllers.manageExceptions.CustomException;
 import com.platform.notification_service.services.email.IEmailService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -16,7 +18,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Slf4j
 public class EmailService implements IEmailService {
-    /** JavaMailSender for sending emails */
+    /** JavaMailSender for sending emails. */
     private final JavaMailSender mailSender;
     /**
      * Sends an HTML email.
@@ -40,7 +42,7 @@ public class EmailService implements IEmailService {
             helper.setText(content, true);
             mailSender.send(message);
         } catch (MessagingException e) {
-            throw new RuntimeException("Error sending email to " + to, e);
+            throw new CustomException("Error sending email to " + to, HttpStatus.INTERNAL_SERVER_ERROR, e);
         }
     }
 }

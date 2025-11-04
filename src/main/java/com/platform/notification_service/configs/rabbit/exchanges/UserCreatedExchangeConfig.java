@@ -2,7 +2,9 @@ package com.platform.notification_service.configs.rabbit.exchanges;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-
+/**
+ * Configuration class for the "user created" RabbitMQ exchange.
+ */
 @Configuration
 public class UserCreatedExchangeConfig extends ExchangeAbstractConfig {
 
