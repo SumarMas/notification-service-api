@@ -10,7 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
-
+/**
+ * Implementation of the IUserGetService interface
+ * for retrieving user details.
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor

@@ -23,7 +23,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.UUID;
 
 /**
- * Implementation of the INgoRestClient interface for interacting with the NGO service.
+ * Implementation of the INgoRestClient interface for
+ * interacting with the NGO service.
  */
 @Service
 @Slf4j

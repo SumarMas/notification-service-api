@@ -1,6 +1,5 @@
 package com.platform.notification_service.services.donation.impl;
 
-import com.platform.notification_service.dtos.Ngo.NgoStatusMessageDto;
 import com.platform.notification_service.dtos.campaign.CampaignDto;
 import com.platform.notification_service.dtos.donation.DonationMessageDto;
 import com.platform.notification_service.dtos.user.UserDto;
@@ -20,7 +19,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 import java.util.UUID;
-
+/**
+ * Service implementation for handling donation status notifications.
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -76,7 +77,8 @@ public class DonationStatusService implements IDonationStatusService {
         log.debug("Sending successful donation email to: {}", userDto.getEmail());
         emailService.send(userDto.getEmail(), null, subject, body);
     }
-    private String renderTemplate(CampaignDto campaignDto, UserDto userDto, DonationMessageDto donationMessageDto,String templateName) {
+    private String renderTemplate(CampaignDto campaignDto, UserDto userDto,
+                                  DonationMessageDto donationMessageDto, String templateName) {
         Map<String, String> templateParams = Map.of(
                 "campaign_name", campaignDto.getTitle(),
                 "donor", userDto.getFirstName() + " " + userDto.getLastName(),

@@ -10,7 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
-
+/**
+ * Implementation of the ICampaignGetService interface
+ * for retrieving campaign details.
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j

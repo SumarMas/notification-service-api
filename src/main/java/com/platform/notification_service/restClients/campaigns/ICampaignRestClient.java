@@ -13,7 +13,8 @@ public interface ICampaignRestClient {
      * Retrieves a CampaignDto by its unique identifier.
      *
      * @param campaignId The unique identifier of the campaign.
-     * @return A ResponseEntity containing the CampaignDto corresponding to the provided ID.
+     * @return A ResponseEntity containing the CampaignDto
+     * corresponding to the provided ID.
      */
     ResponseEntity<CampaignDto> getCampaignById(UUID campaignId);
 }

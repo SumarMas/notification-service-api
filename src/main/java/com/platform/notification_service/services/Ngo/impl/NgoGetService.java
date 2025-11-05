@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 import java.util.UUID;
-
+/**
+ * Implementation of the INgoGetService interface for retrieving NGO details.
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor

@@ -4,7 +4,6 @@ package com.platform.notification_service.restClients.campaigns.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.platform.notification_service.controllers.manageExceptions.CustomException;
-import com.platform.notification_service.dtos.Ngo.NgoDto;
 import com.platform.notification_service.dtos.campaign.CampaignDto;
 import com.platform.notification_service.dtos.common.ErrorApi;
 import com.platform.notification_service.restClients.campaigns.ICampaignRestClient;
@@ -26,9 +25,13 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.UUID;
-
+/**
+ * Implementation of the ICampaignRestClient interface for
+ * interacting with the campaign service.
+ */
 @Service
 @Slf4j
+@SuppressWarnings("PMD.LooseCoupling")
 public class CampaignRestClient implements ICampaignRestClient {
     /**
      * RestTemplate instance for making HTTP requests.
@@ -72,7 +75,8 @@ public class CampaignRestClient implements ICampaignRestClient {
      * Retrieves a CampaignDto by its unique identifier.
      *
      * @param campaignId The unique identifier of the campaign.
-     * @return A ResponseEntity containing the CampaignDto corresponding to the provided ID.
+     * @return A ResponseEntity containing the CampaignDto
+     * corresponding to the provided ID.
      */
     @Override
     public ResponseEntity<CampaignDto> getCampaignById(UUID campaignId) {
