@@ -38,7 +38,7 @@ public class EmailService implements IEmailService {
                 helper.setCc(cc);
             }
             helper.setSubject(subject);
-            log.info(content);
+            log.debug(content);
             helper.setText(content, true);
             mailSender.send(message);
         } catch (MessagingException e) {

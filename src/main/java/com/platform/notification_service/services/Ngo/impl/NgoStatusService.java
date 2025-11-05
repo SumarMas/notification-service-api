@@ -69,10 +69,14 @@ public class NgoStatusService implements INgoStatusService {
     }
 
     private String renderTemplate(NgoStatusMessageDto ngoStatusMessageDto, String templateName) {
+        String message = ngoStatusMessageDto.getMessage() != null
+                && !ngoStatusMessageDto.getMessage().isBlank()
+                ? ngoStatusMessageDto.getMessage() : "Sin Comentarios";
+
         Map<String, String> templateParams = Map.of(
                 "firstName", ngoStatusMessageDto.getUser().getFirstName(),
                 "organizationName", ngoStatusMessageDto.getNameNgo(),
-                "comment", ngoStatusMessageDto.getMessage()
+                "comment", message
         );
         return templateService.render(templateName, templateParams);
     }
