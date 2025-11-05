@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Exitoso - Pendiente de Verificación</title>
+    <style>
+        /* Variables de color para referencia */
+        :root {
+            --primary-purple: rgb(168, 85, 247);
+            --pending-orange: #f97316; /* Naranja */
+        }
+
+        /* Reset para email */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            width: 100% !important;
+            min-width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Contenedor principal */
+        .email-container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgb(202, 138, 227) 0%, rgb(168, 85, 247) 100%);
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .header .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        /* Contenido principal */
+        .content {
+            padding: 40px 25px;
+        }
+
+        /* Logo section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgb(202, 138, 227), rgb(168, 85, 247));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        /* Mensaje principal */
+        .main-message {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .main-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .organization-name {
+            color: rgb(168, 85, 247);
+            font-weight: 700;
+        }
+
+        .main-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        /* Estado de verificación - Naranja */
+        .verification-status {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .status-box {
+            display: inline-block;
+            background-color: rgba(255, 174, 87, 0.04); 
+            border: 2px solid rgba(255, 174, 87, 0.3);
+            border-radius: 12px;
+            padding: 20px 40px;
+        }
+
+        .status-label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .status-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--pending-orange); /* Naranja */
+        }
+
+        /* ESTILO NUEVO: Destacado de información importante (Próximos pasos) */
+        .info-highlight {
+            background-color: rgba(168, 85, 247, 0.04);
+            border-left: 3px solid rgb(168, 85, 247);
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-highlight p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .info-highlight strong {
+            color: #333; /* Texto fuerte en gris oscuro */
+        }
+        
+        .info-highlight .highlight-label {
+            color: rgb(168, 85, 247);
+            font-weight: 600;
+        }
+
+        /* Mensaje final */
+        .footer-message {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .highlight {
+            color: rgb(168, 85, 247);
+            font-weight: 600;
+        }
+
+        /* Responsivo para móviles */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .email-container {
+                border-radius: 12px;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .content {
+                padding: 35px 20px;
+            }
+            
+            .main-title {
+                font-size: 20px;
+            }
+            
+            .info-highlight {
+                padding: 12px 15px;
+            }
+        }
+
+        /* Compatibilidad con Outlook */
+        </style>
+</head>
+<body>
+    <div class="email-container">
+        
+        <div class="header">
+            <h1>Registro de Organización</h1>
+            <p class="subtitle">¡Tu solicitud ha sido recibida!</p>
+        </div>
+        
+        <div class="content">
+            
+            <div class="logo-section">
+                <h2 class="brand-name">Sumar+</h2>
+            </div>
+
+            <div class="main-message">
+                <div class="main-title">
+                    ¡Felicidades, <span class="organization-name">${firstName}</span>!
+                </div>
+                <p class="main-text">
+                    Hemos recibido correctamente la solicitud de registro para tu organización, 
+                    <strong>${organizationName}</strong>. ¡Gracias por unirte a nuestra plataforma!
+                </p>
+            </div>
+
+            <div class="verification-status">
+                <div class="status-box">
+                    <div class="status-label">Estado actual:</div>
+                    <div class="status-value">Pendiente de Verificación</div>
+                </div>
+            </div>
+
+            <div class="info-highlight">
+                <p>
+                    <span class="highlight-label">Próximos pasos:</span> Nuestro equipo de administración 
+                    está revisando la documentación y la identidad de **${organizationName}**. 
+                    Este proceso puede tomar **entre 1 y 3 días hábiles**.
+                    <br><br>
+                    Te notificaremos de inmediato por email tan pronto como la verificación haya sido completada.
+                </p>
+            </div>
+
+            <div class="footer-message">
+                Si tienes alguna pregunta sobre el proceso, no dudes en contactar a nuestro equipo de soporte.
+                <br><br>
+                Agradecemos tu paciencia y tu interés en <span class="highlight">Sumar+</span>.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

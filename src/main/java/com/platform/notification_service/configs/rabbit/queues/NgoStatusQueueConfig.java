@@ -1,0 +1,21 @@
+package com.platform.notification_service.configs.rabbit.queues;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+/**
+ * Configuration class for the NGO Status Queue.
+ * Extends the QueueAbstractConfig to set up the exchange and queue names.
+ */
+@Configuration
+public class NgoStatusQueueConfig extends QueueAbstractConfig {
+    /**
+     * Constructs a QueueAbstractConfig with the specified exchange and queue names.
+     *
+     * @param exchangeNameParam the name of the exchange
+     * @param queueNameParam    the name of the queue
+     */
+    public NgoStatusQueueConfig(@Value("${queues.ngo-status.exchange}") String exchangeNameParam,
+                                @Value("${queues.ngo-status.queue}") String queueNameParam) {
+        super(exchangeNameParam, queueNameParam);
+    }
+}

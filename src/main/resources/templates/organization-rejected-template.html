@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organización Rechazada</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        /* Reset para email */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            width: 100% !important;
+            min-width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Contenedor principal */
+        .email-container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgb(202, 138, 227) 0%, rgb(168, 85, 247) 100%);
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .header .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        /* Contenido principal */
+        .content {
+            padding: 40px 25px;
+        }
+
+        /* Logo section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgb(202, 138, 227), rgb(168, 85, 247));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        /* Mensaje principal */
+        .main-message {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .main-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .organization-name {
+            color: rgb(168, 85, 247);
+            font-weight: 700;
+        }
+
+        .main-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        /* Estado de verificación */
+        .verification-status {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .status-box {
+            display: inline-block;
+            background-color: rgba(239, 68, 68, 0.02);
+            border: 2px solid rgba(239, 68, 68, 0.2);
+            border-radius: 12px;
+            padding: 20px 40px;
+        }
+
+        .status-label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .status-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ef4444;
+        }
+
+        /* Comentario del admin */
+        .admin-comment {
+            background-color: rgba(168, 85, 247, 0.02);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px solid rgba(168, 85, 247, 0.12);
+        }
+
+        .comment-header {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgb(168, 85, 247);
+            margin-bottom: 10px;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* Mensaje final */
+        .footer-message {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .highlight {
+            color: rgb(168, 85, 247);
+            font-weight: 600;
+        }
+
+        /* Responsivo para móviles */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .email-container {
+                border-radius: 12px;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .content {
+                padding: 35px 20px;
+            }
+            
+            .main-title {
+                font-size: 20px;
+            }
+            
+            .admin-comment {
+                padding: 15px;
+            }
+        }
+
+        /* Compatibilidad con Outlook */
+        <!--[if mso]>
+        .header {
+            background: #a855f7 !important;
+        }
+        .brand-name {
+            color: #a855f7 !important;
+        }
+        .admin-comment {
+            background-color: #fafafa !important;
+        }
+        .status-box {
+            background-color: #fef2f2 !important;
+            border-color: #fecaca !important;
+        }
+        <![endif]-->
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal compatible con todos los clientes de email -->
+    <div class="email-container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>Organización Rechazada</h1>
+            <p class="subtitle">Actualización sobre tu solicitud</p>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="content">
+            
+            <!-- Logo -->
+            <div class="logo-section">
+                <h2 class="brand-name">Sumar+</h2>
+            </div>
+
+            <!-- Mensaje principal -->
+            <div class="main-message">
+                <div class="main-title">
+                    Hola, <span class="organization-name">${firstName}</span>
+                </div>
+                <p class="main-text">
+                    Lamentamos informarte que tu solicitud para registrar 
+                    <strong>${organizationName}</strong> en nuestra plataforma no ha sido 
+                    aprobada en esta ocasión.
+                </p>
+            </div>
+
+            <!-- Estado de verificación -->
+            <div class="verification-status">
+                <div class="status-box">
+                    <div class="status-label">Estado de tu solicitud:</div>
+                    <div class="status-value">Rechazada</div>
+                </div>
+            </div>
+
+            <!-- Comentario del admin -->
+            <div class="admin-comment">
+                <div class="comment-header">Mensaje del equipo de Sumar+:</div>
+                <div class="comment-text">"${comment}"</div>
+            </div>
+
+            <!-- Mensaje final -->
+            <div class="footer-message">
+                Si tienes alguna pregunta o deseas más información sobre esta decisión, 
+                no dudes en contactarnos. Estamos aquí para ayudarte.
+                <br><br>
+                Agradecemos tu interés en ser parte de <span class="highlight">Sumar+</span>.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
