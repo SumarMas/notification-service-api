@@ -83,7 +83,8 @@ public class DonationStatusService implements IDonationStatusService {
                 "campaign_name", campaignDto.getTitle(),
                 "donor", userDto.getFirstName() + " " + userDto.getLastName(),
                 "amount", donationMessageDto.getAmount().toString(),
-                "operation_id", donationMessageDto.getDonationId().toString()
+                "operation_id", donationMessageDto.getDonationId().toString(),
+                "status", "CONFIRMED"
         );
         return templateService.render(templateName, templateParams);
     }

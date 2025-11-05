@@ -19,7 +19,7 @@ import java.util.UUID;
 @Slf4j
 public class CampaignGetService implements ICampaignGetService {
     /** REST client for campaign-related operations. */
-    private ICampaignRestClient campaignRestClient;
+    private final ICampaignRestClient campaignRestClient;
     /**
      * Retrieves a CampaignDto by its unique identifier.
      *
