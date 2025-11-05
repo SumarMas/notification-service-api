@@ -73,3 +73,6 @@ queues:
   user-created:
     exchange: ${EXCHANGE_USER_CREATED:user.created}
     queue: ${QUEUE_USER_CREATED:notification.user.created.queue}
+  ngo-status:
+    exchange: ${EXCHANGE_NGO_STATUS:ngo.status}
+    queue: ${QUEUE_NGO_STATUS:notification.ngo.status.queue}
