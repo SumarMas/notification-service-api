@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agradecimiento por Donación</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        /* Reset para email */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            width: 100% !important;
+            min-width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Contenedor principal */
+        .email-container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgb(202, 138, 227) 0%, rgb(168, 85, 247) 100%);
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .header .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        /* Sección de campaña */
+        .campaign-banner {
+            background-color: rgba(168, 85, 247, 0.04);
+            padding: 18px 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+        }
+
+        .campaign-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: rgb(168, 85, 247);
+            margin-bottom: 4px;
+        }
+
+        .campaign-subtitle {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Contenido principal */
+        .content {
+            padding: 35px 25px;
+        }
+
+        /* Logo section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgb(202, 138, 227), rgb(168, 85, 247));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        /* Detalles de la donación */
+        .donation-details {
+            background-color: rgba(168, 85, 247, 0.02);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid rgba(168, 85, 247, 0.12);
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .detail-row td {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.08);
+            vertical-align: top;
+        }
+
+        .detail-row:last-child td {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #666;
+            font-size: 14px;
+            width: 45%;
+        }
+
+        .detail-value {
+            font-weight: 500;
+            color: #333333;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .amount {
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            color: rgb(168, 85, 247) !important;
+        }
+
+        .status-confirmed {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #10b981;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        /* Mensaje final */
+        .footer-message {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .highlight {
+            color: rgb(168, 85, 247);
+            font-weight: 600;
+        }
+
+        .thank-you-emphasis {
+            font-weight: 600;
+            color: rgb(168, 85, 247);
+            font-size: 15px;
+        }
+
+        /* Responsivo para móviles */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .email-container {
+                border-radius: 12px;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .campaign-banner {
+                padding: 15px 20px;
+            }
+            
+            .donation-details {
+                padding: 20px;
+            }
+            
+            .detail-label,
+            .detail-value {
+                font-size: 13px;
+            }
+            
+            .amount {
+                font-size: 20px !important;
+            }
+
+            .detail-label {
+                width: 50%;
+            }
+        }
+
+        /* Compatibilidad con Outlook */
+        <!--[if mso]>
+        .header {
+            background: #a855f7 !important;
+        }
+        .campaign-banner {
+            background-color: #f9f5ff !important;
+        }
+        .donation-details {
+            background-color: #fafafa !important;
+        }
+        .brand-name {
+            color: #a855f7 !important;
+        }
+        <![endif]-->
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal compatible con todos los clientes de email -->
+    <div class="email-container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>¡Muchas gracias por tu donación!</h1>
+            <p class="subtitle">Tu apoyo hace la diferencia</p>
+        </div>
+        
+        <!-- Banner de campaña - EDITABLE -->
+        <div class="campaign-banner">
+            <div class="campaign-name">Campaña: ${campaign_name}</div>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="content">
+            
+            <!-- Logo -->
+            <div class="logo-section">
+                <h2 class="brand-name">Sumar+</h2>
+            </div>
+
+            <!-- Detalles de la donación -->
+            <div class="donation-details">
+                <table class="details-table">
+                    <tr class="detail-row">
+                        <td class="detail-label">Donante:</td>
+                        <td class="detail-value">${donor}</td>
+                    </tr>
+                    
+                    <tr class="detail-row">
+                        <td class="detail-label">Monto:</td>
+                        <td class="detail-value amount"> $ ${amount}</td>
+                    </tr>
+                    
+                    <tr class="detail-row">
+                        <td class="detail-label">ID de Operación:</td>
+                        <td class="detail-value">${operation_id}</td>
+                    </tr>
+                    
+                    <tr class="detail-row">
+                        <td class="detail-label">Estado:</td>
+                        <td class="detail-value status-confirmed">
+                            <span class="status-indicator"></span>${status}
+                        </td>
+                    </tr>
+
+                    <tr class="detail-row">
+                        <td class="detail-label">Campaña:</td>
+                        <td class="detail-value">${campaign_name}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Mensaje de agradecimiento genérico -->
+            <div class="footer-message">
+                Gracias por ser parte de <span class="highlight">nuestra campaña</span>. 
+                Tu contribución nos ayuda a seguir construyendo un futuro mejor para todos.
+                <br><br>
+                <span class="thank-you-emphasis">¡Tu generosidad transforma vidas!</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
