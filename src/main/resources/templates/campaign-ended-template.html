@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaña Finalizada</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style>
+        /* Reset para email */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, table, td, p, a, li, blockquote {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            width: 100% !important;
+            min-width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Contenedor principal */
+        .email-container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgb(202, 138, 227) 0%, rgb(168, 85, 247) 100%);
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .header .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        /* Contenido principal */
+        .content {
+            padding: 40px 25px;
+        }
+
+        /* Logo section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-name {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgb(202, 138, 227), rgb(168, 85, 247));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        /* Mensaje principal */
+        .main-message {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .main-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .organization-name {
+            color: rgb(168, 85, 247);
+            font-weight: 700;
+        }
+
+        .main-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        /* Detalles de la campaña */
+        .campaign-details {
+            background-color: rgba(168, 85, 247, 0.02);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 1px solid rgba(168, 85, 247, 0.12);
+        }
+
+        .details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .detail-row td {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(168, 85, 247, 0.08);
+            vertical-align: top;
+        }
+
+        .detail-row:last-child td {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #666;
+            font-size: 14px;
+            width: 45%;
+        }
+
+        .detail-value {
+            font-weight: 500;
+            color: #333333;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .amount {
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            color: rgb(168, 85, 247) !important;
+        }
+
+        .status-completed {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #f59e0b;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        /* Destacado de información importante */
+        .info-highlight {
+            background-color: rgba(168, 85, 247, 0.04);
+            border-left: 3px solid rgb(168, 85, 247);
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-highlight p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .info-highlight strong {
+            color: rgb(168, 85, 247);
+        }
+
+        /* Mensaje final */
+        .footer-message {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .highlight {
+            color: rgb(168, 85, 247);
+            font-weight: 600;
+        }
+
+        .emphasis {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Responsivo para móviles */
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .email-container {
+                border-radius: 12px;
+                max-width: 100%;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .content {
+                padding: 35px 20px;
+            }
+            
+            .main-title {
+                font-size: 20px;
+            }
+            
+            .campaign-details {
+                padding: 20px;
+            }
+            
+            .detail-label,
+            .detail-value {
+                font-size: 13px;
+            }
+            
+            .amount {
+                font-size: 20px !important;
+            }
+
+            .detail-label {
+                width: 50%;
+            }
+
+            .info-highlight {
+                padding: 12px 15px;
+            }
+        }
+
+        /* Compatibilidad con Outlook */
+        <!--[if mso]>
+        .header {
+            background: #a855f7 !important;
+        }
+        .campaign-details {
+            background-color: #fafafa !important;
+        }
+        .brand-name {
+            color: #a855f7 !important;
+        }
+        .info-highlight {
+            background-color: #f9f5ff !important;
+        }
+        <![endif]-->
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal compatible con todos los clientes de email -->
+    <div class="email-container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>Campaña Finalizada</h1>
+            <p class="subtitle">Resumen de tu campaña</p>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="content">
+            
+            <!-- Logo -->
+            <div class="logo-section">
+                <h2 class="brand-name">Sumar+</h2>
+            </div>
+
+            <!-- Mensaje principal -->
+            <div class="main-message">
+                <div class="main-title">
+                    Hola, <span class="organization-name">${organizationName}</span>
+                </div>
+                <p class="main-text">
+                    Te informamos que tu campaña ha finalizado por cumplimiento del plazo establecido. 
+                    Aunque no se alcanzó la meta económica, los fondos recaudados serán transferidos 
+                    a tu cuenta.
+                </p>
+            </div>
+
+            <!-- Detalles de la campaña -->
+            <div class="campaign-details">
+                <table class="details-table">
+                    <tr class="detail-row">
+                        <td class="detail-label">Campaña:</td>
+                        <td class="detail-value">${campaignName}</td>
+                    </tr>
+                    
+                    <tr class="detail-row">
+                        <td class="detail-label">Organización:</td>
+                        <td class="detail-value">${organizationName}</td>
+                    </tr>
+                    
+                    <tr class="detail-row">
+                        <td class="detail-label">Monto Recaudado:</td>
+                        <td class="detail-value amount">$ ${totalAmount}</td>
+                    </tr>
+                    
+                    <tr class="detail-row">
+                        <td class="detail-label">Estado:</td>
+                        <td class="detail-value status-completed">
+                            <span class="status-indicator"></span>Finalizada
+                        </td>
+                    </tr>
+                    
+                    <tr class="detail-row">
+                        <td class="detail-label">Fecha de Cierre:</td>
+                        <td class="detail-value">${endDate}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Información adicional -->
+            <div class="info-highlight">
+                <p>
+                    <strong>Próximos pasos:</strong> Procesaremos la transferencia de los fondos 
+                    recaudados en los próximos días hábiles. Recibirás un comprobante de pago 
+                    con todos los detalles una vez completada la transacción.
+                </p>
+            </div>
+
+            <!-- Mensaje final -->
+            <div class="footer-message">
+                <span class="emphasis">Gracias por tu esfuerzo y dedicación.</span>
+                <br><br>
+                Cada aporte recibido es valioso y contribuye a tu causa. 
+                Te invitamos a seguir siendo parte de <span class="highlight">Sumar+</span> 
+                y continuar generando un impacto positivo en nuestra comunidad.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
