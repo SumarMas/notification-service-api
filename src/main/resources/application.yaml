@@ -85,3 +85,6 @@ queues:
   donation:
     exchange: ${EXCHANGE_DONATION_STATUS:donation.status}
     queue: ${QUEUE_DONATION_STATUS:notification.donation.status.queue}
+  campaign-close:
+    exchange: ${EXCHANGE_CAMPAIGN_CLOSE:campaign.close}
+    queue: ${QUEUE_CAMPAIGN_CLOSE:campaign.close.queue}
