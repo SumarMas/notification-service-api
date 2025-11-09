@@ -2,6 +2,7 @@ package com.platform.notification_service.configs.rabbit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
@@ -36,5 +37,19 @@ public class RabbitConfig {
         template.setMessageConverter(jsonMessageConverter);
         template.setChannelTransacted(true);
         return template;
+    }
+
+    /**
+     * Defines a RabbitAdmin bean that will automatically declare queues,
+     * exchanges and bindings defined in the Spring context.
+     *
+     * @param connectionFactory the RabbitMQ connection factory
+     * @return the RabbitAdmin bean
+     */
+    @Bean
+    public RabbitAdmin rabbitAdmin(ConnectionFactory connectionFactory) {
+        RabbitAdmin admin = new RabbitAdmin(connectionFactory);
+        admin.setAutoStartup(true); // 🔹 ensures declarations run on startup
+        return admin;
     }
 }
