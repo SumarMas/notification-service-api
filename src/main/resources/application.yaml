@@ -20,6 +20,9 @@ spring:
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USER:guest}
     password: ${RABBITMQ_PASSWORD:guest}
+    listener:
+      simple:
+        auto-startup: false
   mail:
     host: smtp.gmail.com
     port: 587
@@ -87,4 +90,4 @@ queues:
     queue: ${QUEUE_DONATION_STATUS:notification.donation.status.queue}
   campaign-close:
     exchange: ${EXCHANGE_CAMPAIGN_CLOSE:campaign.close}
-    queue: ${QUEUE_CAMPAIGN_CLOSE:campaign.close.queue}
+    queue: ${QUEUE_CAMPAIGN_CLOSE:notification.campaign.close.queue}
