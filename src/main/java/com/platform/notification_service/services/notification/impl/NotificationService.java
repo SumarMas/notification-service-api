@@ -1,5 +1,6 @@
 package com.platform.notification_service.services.notification.impl;
 
+import com.platform.notification_service.context.IContextService;
 import com.platform.notification_service.controllers.manageExceptions.CustomException;
 import com.platform.notification_service.dtos.NotificationDto;
 import com.platform.notification_service.entities.NotificationEntity;
@@ -24,6 +25,8 @@ import java.util.UUID;
 public class NotificationService implements INotificationService {
     /** Repository for managing notification entities. */
     private final NotificationRepository notificationRepository;
+    /** Service for accessing context information. */
+    private final IContextService contextService;
     /**
      * Creates a new notification.
      *
@@ -38,6 +41,19 @@ public class NotificationService implements INotificationService {
             log.error("Error creating notification. Exception: {}", ex.getMessage(), ex);
             throw new CustomException("Failed to create notification", HttpStatus.INTERNAL_SERVER_ERROR, ex);
         }
+    }
+
+    /**
+     * Retrieves notifications for the currently authenticated user.
+     *
+     * @return A list of NotificationDto objects
+     * representing the user's notifications.
+     */
+    @Override
+    public List<NotificationDto> getMyNotifications() {
+        UUID userId = contextService.getUserId();
+        log.trace("Getting notifications for current user ID: {}", userId);
+        return getNotificationsForUser(userId);
     }
 
     /**

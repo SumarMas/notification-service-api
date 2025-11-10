@@ -14,6 +14,14 @@ public interface INotificationService {
      * @param notificationEntity The notification entity to be created.
      */
     void createNotification(NotificationEntity notificationEntity);
+
+    /** Retrieves notifications for the currently authenticated user.
+     *
+     * @return A list of NotificationDto objects
+     * representing the user's notifications.
+     */
+    List<NotificationDto> getMyNotifications();
+
     /** Retrieves notifications for a specific user.
      *
      * @param userId The UUID of the user whose notifications are to be retrieved.
