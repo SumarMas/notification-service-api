@@ -17,7 +17,9 @@ import org.springframework.stereotype.Service;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.UUID;
-
+/**
+ * Service implementation for handling payout paid notifications.
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j

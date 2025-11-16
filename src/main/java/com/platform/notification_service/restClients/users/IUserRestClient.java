@@ -18,7 +18,8 @@ public interface IUserRestClient {
     /**
      * Retrieves a list of admin users.
      *
-     * @return a ResponseEntity containing an array of UserDto representing admin users
+     * @return a ResponseEntity containing an array
+     * of UserDto representing admin users
      */
     ResponseEntity<UserDto[]> getAdminUsers();
 }

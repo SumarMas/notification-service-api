@@ -99,7 +99,8 @@ public class UserRestClient implements IUserRestClient {
     /**
      * Retrieves a list of admin users.
      *
-     * @return a ResponseEntity containing an array of UserDto representing admin users
+     * @return a ResponseEntity containing an array
+     * of UserDto representing admin users
      */
     @Override
     public ResponseEntity<UserDto[]> getAdminUsers() {
