@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 /**
  * Implementation of the IUserGetService interface
@@ -39,6 +41,27 @@ public class UserGetService implements IUserGetService {
 
         } catch (Exception e) {
             log.error("Error retrieving User details for ID: {}", id, e);
+            throw e;
+        }
+    }
+
+    /**
+     * Retrieve a list of all admin users.
+     *
+     * @return a list of UserDto representing admin users
+     */
+    @Override
+    public List<UserDto> getAdminUsers() {
+        log.trace("Fetching list of admin users");
+        try {
+            UserDto[] adminUsers = userRestClient.getAdminUsers().getBody();
+            if (adminUsers == null) {
+                log.warn("No admin users found");
+                throw new CustomException("No admin users found", HttpStatus.NOT_FOUND);
+            }
+            return Arrays.stream(adminUsers).toList();
+        } catch (Exception e) {
+            log.error("Error retrieving admin users", e);
             throw e;
         }
     }

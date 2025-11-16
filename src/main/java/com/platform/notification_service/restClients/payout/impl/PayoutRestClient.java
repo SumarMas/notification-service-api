@@ -1,11 +1,11 @@
-package com.platform.notification_service.restClients.users.impl;
+package com.platform.notification_service.restClients.payout.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.platform.notification_service.controllers.manageExceptions.CustomException;
 import com.platform.notification_service.dtos.common.ErrorApi;
-import com.platform.notification_service.dtos.user.UserDto;
-import com.platform.notification_service.restClients.users.IUserRestClient;
+import com.platform.notification_service.dtos.payout.PayoutRequestDto;
+import com.platform.notification_service.restClients.payout.IPayoutRestClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -22,13 +22,13 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.UUID;
 /**
- * Implementation of the IUserRestClient interface for
- * interacting with the user service.
+ * Implementation of the IPayoutRestClient interface
+ * for interacting with the Payout service.
  */
 @Service
 @Slf4j
 @SuppressWarnings("PMD.LooseCoupling")
-public class UserRestClient implements IUserRestClient {
+public class PayoutRestClient implements IPayoutRestClient {
     /**
      * RestTemplate instance for making HTTP requests.
      */
@@ -38,7 +38,7 @@ public class UserRestClient implements IUserRestClient {
      */
     private final ObjectMapper objectMapper;
     /**
-     * Base URL for the user service.
+     * Base URL for the Payout service.
      */
     private final String rootUrl;
 
@@ -46,21 +46,20 @@ public class UserRestClient implements IUserRestClient {
      * Application name for internal request header.
      */
     private final String applicationName;
-
     /**
-     * Constructs a UserRestClient with the specified RestTemplate and root URL.
+     * Constructs a PayoutRestClient with the specified RestTemplate and root URL.
      *
      * @param restTemplateParam the RestTemplate instance for making HTTP requests
-     * @param rootUrlParam      the base URL for the user service,
+     * @param rootUrlParam      the base URL for the Payout service,
      *                          injected from application properties
      * @param applicationNameParam the application name,
      *                             injected from application properties
      * @param objectMapperParam the ObjectMapper instance for JSON processing
      */
-    public UserRestClient(RestTemplate restTemplateParam,
-                          @Value("${pool.user.url}") String rootUrlParam,
-                          @Value("${spring.application.name}") String applicationNameParam,
-                          ObjectMapper objectMapperParam) {
+    public PayoutRestClient(RestTemplate restTemplateParam,
+                            @Value("${pool.payout.url}") String rootUrlParam,
+                            @Value("${spring.application.name}") String applicationNameParam,
+                            ObjectMapper objectMapperParam) {
         this.rootUrl = rootUrlParam;
         this.applicationName = applicationNameParam;
         this.restTemplate = restTemplateParam;
@@ -68,42 +67,15 @@ public class UserRestClient implements IUserRestClient {
     }
 
     /**
-     * Retrieves user information by user ID.
+     * Retrieves a PayoutRequestDto by its unique identifier.
      *
-     * @param userId the UUID of the user to retrieve
-     * @return a ResponseEntity containing the UserDto if found
+     * @param payoutId The unique identifier of the payout request.
+     * @return A ResponseEntity containing the PayoutRequestDto
+     * corresponding to the provided ID.
      */
     @Override
-    public ResponseEntity<UserDto> getUserById(UUID userId) {
-        String getUrl = rootUrl + "/api/v1/users/{userId}/profile";
-        try {
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.add("X-Internal-Request", applicationName);
-            HttpEntity<UserDto> requestEntity = new HttpEntity<>(null, headers);
-            log.trace("Sending GET request to URL: {}", getUrl);
-            return restTemplate.exchange(
-                    getUrl,
-                    HttpMethod.GET,
-                    requestEntity,
-                    UserDto.class,
-                    userId
-            );
-        } catch (HttpClientErrorException | HttpServerErrorException ex) {
-            log.error("HTTP error during get data users: {}", ex.getMessage());
-            handleError(ex);
-            return null;
-        }
-    }
-
-    /**
-     * Retrieves a list of admin users.
-     *
-     * @return a ResponseEntity containing an array of UserDto representing admin users
-     */
-    @Override
-    public ResponseEntity<UserDto[]> getAdminUsers() {
-        String getUrl = rootUrl + "/api/v1/users/admins";
+    public ResponseEntity<PayoutRequestDto> getPayoutById(UUID payoutId) {
+        String getUrl = rootUrl + "/api/v1/payouts/{requestId}";
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
@@ -114,10 +86,11 @@ public class UserRestClient implements IUserRestClient {
                     getUrl,
                     HttpMethod.GET,
                     requestEntity,
-                    UserDto[].class
+                    PayoutRequestDto.class,
+                    payoutId
             );
         } catch (HttpClientErrorException | HttpServerErrorException ex) {
-            log.error("HTTP error during get data admin users: {}", ex.getMessage());
+            log.error("HTTP error during get data payout: {}", ex.getMessage());
             handleError(ex);
             return null;
         }
@@ -132,9 +105,9 @@ public class UserRestClient implements IUserRestClient {
             if (ex.getStatusCode() == HttpStatus.NOT_FOUND) {
                 throw new CustomException(error.getMessage(), HttpStatus.NOT_FOUND);
             }
-            throw new CustomException("Unexpected error from user-service ", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new CustomException("Unexpected error from payout-service ", HttpStatus.INTERNAL_SERVER_ERROR);
         } catch (JsonProcessingException parseEx) {
-            throw new CustomException("Unexpected error from user-service: " + ex.getMessage(),
+            throw new CustomException("Unexpected error from payout-service: " + ex.getMessage(),
                     HttpStatus.valueOf(ex.getStatusCode().value()), parseEx);
         }
     }
