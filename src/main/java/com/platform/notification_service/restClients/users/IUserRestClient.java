@@ -15,4 +15,11 @@ public interface IUserRestClient {
      * @return a ResponseEntity containing the UserDto if found
      */
     ResponseEntity<UserDto> getUserById(UUID userId);
+    /**
+     * Retrieves a list of admin users.
+     *
+     * @return a ResponseEntity containing an array
+     * of UserDto representing admin users
+     */
+    ResponseEntity<UserDto[]> getAdminUsers();
 }

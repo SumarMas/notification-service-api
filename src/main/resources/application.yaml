@@ -71,12 +71,18 @@ eureka:
   client:
     service-url:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:9061/eureka/}
+    registry-fetch-interval-seconds: 5
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
 
 pool:
   user:
     url: ${USER_SERVICE_URL:http://localhost:9080/users}
   campaign:
     url: ${CAMPAIGN_SERVICE_URL:http://localhost:9080/campaigns}
+  payout:
+    url: ${PAYOUT_SERVICE_URL:http://localhost:9080/payouts}
 
 queues:
   user-created:
@@ -91,3 +97,6 @@ queues:
   campaign-close:
     exchange: ${EXCHANGE_CAMPAIGN_CLOSE:campaign.close}
     queue: ${QUEUE_CAMPAIGN_CLOSE:notification.campaign.close.queue}
+  payout-status:
+    exchange: ${EXCHANGE_PAYOUT_STATUS:payout.status}
+    queue: ${QUEUE_PAYOUT_STATUS:notification.status.queue}
