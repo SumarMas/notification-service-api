@@ -50,7 +50,7 @@ public class PayoutStatusConsumer {
                 channel.basicNack(deliveryTag, false, true);
             }
         } catch (IOException e) {
-            log.error("IO exception during message acknowledgment: {}", e.getMessage(), ex);
+            log.error("IO exception during message acknowledgment: {}", e.getMessage(), e);
         }
     }
 }
